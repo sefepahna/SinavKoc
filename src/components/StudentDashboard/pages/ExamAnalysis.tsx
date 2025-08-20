@@ -147,20 +147,25 @@ const ExamAnalysis = () => {
   return (
     <div className="space-y-6">
       {/* Enhanced Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-xl p-6 text-white animate-in slide-in-from-top-10 duration-1000">
+      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl shadow-xl p-6 text-white animate-in slide-in-from-top-10 duration-1000 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-2 right-2 w-16 h-16 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-2 left-2 w-12 h-12 bg-yellow-400 rounded-full animate-bounce delay-1000"></div>
+        </div>
         <div className="flex items-center space-x-4">
-          <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+          <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all duration-300 hover:scale-110 hover:rotate-12">
             <FaChartBar size={28} />
           </div>
           <div>
-            <h1 className="text-3xl font-bold mb-2">Deneme Analizi</h1>
-            <p className="text-blue-100 text-lg">AI destekli performans değerlendirmesi</p>
+            <h1 className="text-3xl font-bold mb-2 animate-in slide-in-from-left-10 duration-1000">Deneme Analizi</h1>
+            <p className="text-blue-100 text-lg animate-in slide-in-from-left-10 duration-1000 delay-300">AI destekli performans değerlendirmesi</p>
           </div>
         </div>
       </div>
 
       {/* Exam Configuration */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-left-10 duration-1000 delay-200 border border-gray-100">
+      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-left-10 duration-1000 delay-200 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
         <h3 className="text-lg font-bold text-slate-800 mb-4">Sınav Bilgileri</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -168,7 +173,7 @@ const ExamAnalysis = () => {
             <select
               value={examType}
               onChange={(e) => setExamType(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-500 hover:shadow-lg focus:shadow-xl hover:scale-105"
             >
               <option value="TYT">TYT (Temel Yeterlilik Testi)</option>
               <option value="AYT">AYT (Alan Yeterlilik Testi)</option>
@@ -183,23 +188,23 @@ const ExamAnalysis = () => {
               type="date"
               value={examDate}
               onChange={(e) => setExamDate(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-500 hover:shadow-lg focus:shadow-xl hover:scale-105"
             />
           </div>
         </div>
       </div>
 
       {/* Enhanced Results Input */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-400 border border-gray-100">
+      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-400 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl">
+            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <FaCalculator className="text-white" size={20} />
             </div>
             <h3 className="text-xl font-bold text-slate-800">Sonuçları Gir</h3>
           </div>
           
-          <button className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+          <button className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold transition-all duration-500 hover:scale-110 hover:shadow-lg">
             <FaUpload size={16} />
             <span>Fotoğraf Yükle</span>
           </button>
@@ -211,7 +216,11 @@ const ExamAnalysis = () => {
             const accuracy = result.correct > 0 ? Math.round((result.correct / (result.correct + result.wrong)) * 100) : 0;
             
             return (
-              <div key={result.subject} className="space-y-4 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border border-gray-200">
+              <div 
+                key={result.subject} 
+                className="space-y-4 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl border border-gray-200 hover:from-blue-50 hover:to-purple-50 transition-all duration-500 hover:scale-105 hover:shadow-lg animate-in slide-in-from-bottom-10 duration-1000"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <div className="flex items-center justify-between">
                   <h4 className="text-lg font-bold text-slate-800">{result.subject}</h4>
                   <div className="text-xs text-gray-600">
@@ -228,7 +237,7 @@ const ExamAnalysis = () => {
                       max={result.totalQuestions}
                       value={result.correct || ''}
                       onChange={(e) => updateResult(index, 'correct', parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-center font-bold text-lg"
+                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent text-center font-bold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                       placeholder="0"
                     />
                   </div>
@@ -241,7 +250,7 @@ const ExamAnalysis = () => {
                       max={result.totalQuestions}
                       value={result.wrong || ''}
                       onChange={(e) => updateResult(index, 'wrong', parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent text-center font-bold text-lg"
+                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent text-center font-bold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                       placeholder="0"
                     />
                   </div>
@@ -254,20 +263,20 @@ const ExamAnalysis = () => {
                       max={result.totalQuestions}
                       value={result.empty || ''}
                       onChange={(e) => updateResult(index, 'empty', parseInt(e.target.value) || 0)}
-                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-transparent text-center font-bold text-lg"
+                      className="w-full px-3 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-500 focus:border-transparent text-center font-bold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
                       placeholder="0"
                     />
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-4 border border-gray-200">
+                <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-gray-600">Net Puan</span>
                     {comparison && (
-                      <div className={`flex items-center space-x-1 text-xs font-bold ${
+                      <div className={`flex items-center space-x-1 text-xs font-bold transition-all duration-300 hover:scale-110 ${
                         comparison.improvement >= 0 ? 'text-green-600' : 'text-red-600'
                       }`}>
-                        <FaArrowUp size={10} className={comparison.improvement < 0 ? 'rotate-180' : ''} />
+                        <FaArrowUp size={10} className={`transition-transform duration-300 ${comparison.improvement < 0 ? 'rotate-180' : ''} ${comparison.improvement >= 0 ? 'animate-bounce' : 'animate-pulse'}`} />
                         <span>{comparison.improvement >= 0 ? '+' : ''}{comparison.improvement.toFixed(1)}</span>
                       </div>
                     )}
@@ -288,22 +297,22 @@ const ExamAnalysis = () => {
       {/* Enhanced Summary Cards */}
       {totalStats.correct > 0 && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-in slide-in-from-bottom-10 duration-1000 delay-600">
-          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-110 transition-all duration-500 hover:shadow-2xl animate-in slide-in-from-left-10 duration-1000">
             <div className="text-3xl font-bold mb-2">{totalStats.correct}</div>
             <div className="text-sm text-green-100">Toplam Doğru</div>
           </div>
           
-          <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-110 transition-all duration-500 hover:shadow-2xl animate-in slide-in-from-bottom-10 duration-1000 delay-200">
             <div className="text-3xl font-bold mb-2">{totalStats.wrong}</div>
             <div className="text-sm text-red-100">Toplam Yanlış</div>
           </div>
           
-          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-110 transition-all duration-500 hover:shadow-2xl animate-in slide-in-from-right-10 duration-1000 delay-400">
             <div className="text-3xl font-bold mb-2">{totalStats.net.toFixed(1)}</div>
             <div className="text-sm text-blue-100">Toplam Net</div>
           </div>
           
-          <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-xl p-6 text-white text-center transform hover:scale-110 transition-all duration-500 hover:shadow-2xl animate-in slide-in-from-top-10 duration-1000 delay-600">
             <div className="text-3xl font-bold mb-2">{totalStats.estimatedScore}</div>
             <div className="text-sm text-purple-100">Tahmini Puan</div>
           </div>
@@ -376,7 +385,7 @@ const ExamAnalysis = () => {
           <button
             onClick={handleAnalyze}
             disabled={isAnalyzing}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 shadow-2xl flex items-center space-x-3 mx-auto"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-500 hover:scale-110 shadow-2xl hover:shadow-3xl flex items-center space-x-3 mx-auto animate-pulse hover:animate-bounce"
           >
             {isAnalyzing ? (
               <>
@@ -395,9 +404,14 @@ const ExamAnalysis = () => {
 
       {/* Enhanced Analysis Results */}
       {showAnalysis && (
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200 animate-in slide-in-from-bottom-10 duration-1000 shadow-xl">
+        <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 rounded-2xl p-8 border-2 border-blue-200 animate-in slide-in-from-bottom-10 duration-1000 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] relative overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-4 right-4 w-20 h-20 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-4 left-4 w-16 h-16 bg-purple-400 rounded-full animate-bounce delay-1000"></div>
+          </div>
           <div className="flex items-center space-x-3 mb-8">
-            <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl">
+            <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <FaRobot className="text-white" size={24} />
             </div>
             <div>
@@ -408,20 +422,20 @@ const ExamAnalysis = () => {
 
           {/* Performance Overview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-              <FaBullseye className="text-blue-600 mx-auto mb-3" size={32} />
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-left-10 duration-1000">
+              <FaBullseye className="text-blue-600 mx-auto mb-3 animate-pulse" size={32} />
               <div className="text-2xl font-bold text-slate-800 mb-1">{totalStats.estimatedScore}</div>
               <div className="text-sm text-gray-600">Tahmini YKS Puanı</div>
             </div>
             
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-              <FaArrowUp className="text-green-600 mx-auto mb-3" size={32} />
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
+              <FaArrowUp className="text-green-600 mx-auto mb-3 animate-bounce" size={32} />
               <div className="text-2xl font-bold text-slate-800 mb-1">+15</div>
               <div className="text-sm text-gray-600">Net Artış (Önceki Deneme)</div>
             </div>
             
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-              <FaLightbulb className="text-yellow-600 mx-auto mb-3" size={32} />
+            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-right-10 duration-1000 delay-400">
+              <FaLightbulb className="text-yellow-600 mx-auto mb-3 animate-pulse" size={32} />
               <div className="text-2xl font-bold text-slate-800 mb-1">{weakTopics.reduce((sum, w) => sum + w.topics.length, 0)}</div>
               <div className="text-sm text-gray-600">Çalışılacak Konu</div>
             </div>
@@ -452,26 +466,26 @@ const ExamAnalysis = () => {
           )}
 
           {/* AI Recommendations */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white mb-6">
+          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-xl p-6 text-white mb-6 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
             <h4 className="font-bold text-lg mb-4 flex items-center space-x-2">
-              <FaRobot size={20} />
+              <FaRobot size={20} className="animate-bounce" />
               <span>AI Önerileri</span>
             </h4>
             <div className="space-y-3 text-blue-100">
-              <p>• <strong>Matematik</strong> konularına günde 2 saat odaklan (Net artış beklentisi: +8)</p>
-              <p>• <strong>Fen</strong> bilimleri için görsel materyaller kullan (Kavrama artışı: %25)</p>
-              <p>• Haftalık 3 deneme çöz ve analiz et (Sınav tecrübesi artışı)</p>
-              <p>• Zayıf konularda birebir ders al (Hedeflenen net artış: +12)</p>
+              <p className="animate-in slide-in-from-left-10 duration-1000">• <strong>Matematik</strong> konularına günde 2 saat odaklan (Net artış beklentisi: +8)</p>
+              <p className="animate-in slide-in-from-left-10 duration-1000 delay-200">• <strong>Fen</strong> bilimleri için görsel materyaller kullan (Kavrama artışı: %25)</p>
+              <p className="animate-in slide-in-from-left-10 duration-1000 delay-400">• Haftalık 3 deneme çöz ve analiz et (Sınav tecrübesi artışı)</p>
+              <p className="animate-in slide-in-from-left-10 duration-1000 delay-600">• Zayıf konularda birebir ders al (Hedeflenen net artış: +12)</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="flex-1 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2 shadow-lg">
-              <FaRobot size={20} />
+            <button className="flex-1 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-6 py-4 rounded-xl font-bold transition-all duration-500 hover:scale-110 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl animate-pulse hover:animate-bounce">
+              <FaRobot size={20} className="animate-bounce" />
               <span>Çalışma Planını Güncelle</span>
             </button>
             
-            <button className="flex-1 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+            <button className="flex-1 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-4 rounded-xl font-bold transition-all duration-500 hover:scale-110 flex items-center justify-center space-x-2 hover:shadow-xl">
               <FaSave size={20} />
               <span>Analizi Kaydet</span>
             </button>
@@ -481,8 +495,8 @@ const ExamAnalysis = () => {
 
       {/* Enhanced Empty State */}
       {totalStats.correct === 0 && (
-        <div className="bg-white rounded-2xl shadow-xl p-12 text-center animate-in slide-in-from-bottom-10 duration-1000 border border-gray-100">
-          <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="bg-white rounded-2xl shadow-xl p-12 text-center animate-in slide-in-from-bottom-10 duration-1000 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+          <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:from-blue-600 hover:to-purple-600 transition-all duration-300 hover:scale-110 animate-pulse">
             <FaChartBar className="text-white" size={40} />
           </div>
           <h3 className="text-2xl font-bold text-gray-800 mb-4">İlk Deneme Analizin</h3>
@@ -492,23 +506,23 @@ const ExamAnalysis = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
-            <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-              <FaRobot className="text-blue-600 mx-auto mb-2" size={24} />
+            <div className="bg-blue-50 rounded-xl p-4 border border-blue-200 hover:bg-blue-100 transition-all duration-300 hover:scale-105 animate-in slide-in-from-left-10 duration-1000">
+              <FaRobot className="text-blue-600 mx-auto mb-2 animate-bounce" size={24} />
               <div className="text-sm font-medium text-blue-800">AI Analizi</div>
             </div>
-            <div className="bg-green-50 rounded-xl p-4 border border-green-200">
-              <FaBullseye className="text-green-600 mx-auto mb-2" size={24} />
+            <div className="bg-green-50 rounded-xl p-4 border border-green-200 hover:bg-green-100 transition-all duration-300 hover:scale-105 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
+              <FaBullseye className="text-green-600 mx-auto mb-2 animate-pulse" size={24} />
               <div className="text-sm font-medium text-green-800">Hedef Belirleme</div>
             </div>
-            <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
-              <FaLightbulb className="text-purple-600 mx-auto mb-2" size={24} />
+            <div className="bg-purple-50 rounded-xl p-4 border border-purple-200 hover:bg-purple-100 transition-all duration-300 hover:scale-105 animate-in slide-in-from-right-10 duration-1000 delay-400">
+              <FaLightbulb className="text-purple-600 mx-auto mb-2 animate-bounce" size={24} />
               <div className="text-sm font-medium text-purple-800">Kişisel Öneriler</div>
             </div>
           </div>
           
-          <div className="text-sm text-blue-600 bg-blue-50 rounded-xl p-6 max-w-lg mx-auto border border-blue-200">
+          <div className="text-sm text-blue-600 bg-blue-50 rounded-xl p-6 max-w-lg mx-auto border border-blue-200 hover:bg-blue-100 transition-all duration-300 hover:scale-105">
             <div className="flex items-center space-x-2 mb-2">
-              <FaLightbulb size={16} />
+              <FaLightbulb size={16} className="animate-pulse" />
               <strong>Pro İpucu:</strong>
             </div>
             <p>Düzenli deneme çözümü ve analizi, YKS başarının için kritik öneme sahip! Haftada en az 2 deneme çözmeyi hedefle.</p>

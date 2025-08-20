@@ -129,16 +129,16 @@ const Messages = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-top-10 duration-1000">
+      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-top-10 duration-1000 hover:shadow-xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0">
           <div>
-            <h1 className="text-2xl font-bold text-slate-800 mb-2">Mesajlar</h1>
-            <p className="text-gray-600">Koçunla iletişim kur</p>
+            <h1 className="text-2xl font-bold text-slate-800 mb-2 animate-in slide-in-from-left-10 duration-1000">Mesajlar</h1>
+            <p className="text-gray-600 animate-in slide-in-from-left-10 duration-1000 delay-200">Koçunla iletişim kur</p>
           </div>
           
           {unreadCount > 0 && (
-            <div className="flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
-              <FaComments size={16} />
+            <div className="flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full animate-bounce hover:scale-105 transition-all duration-300">
+              <FaComments size={16} className="animate-pulse" />
               <span className="font-semibold">{unreadCount} yeni mesaj</span>
             </div>
           )}
@@ -147,15 +147,18 @@ const Messages = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Chat Area */}
-        <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg animate-in slide-in-from-left-10 duration-1000 delay-200">
+        <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg animate-in slide-in-from-left-10 duration-1000 delay-200 hover:shadow-xl transition-all duration-500 hover:scale-[1.01]">
           {/* Chat Header */}
-          <div className="flex items-center space-x-4 p-6 border-b border-gray-200">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+          <div className="flex items-center space-x-4 p-6 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-110">
               <FaUser className="text-white" size={20} />
             </div>
             <div>
               <h3 className="font-bold text-slate-800">Mehmet Hoca</h3>
-              <p className="text-sm text-green-600">● Çevrimiçi</p>
+              <p className="text-sm text-green-600 flex items-center space-x-1">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
+                <span>Çevrimiçi</span>
+              </p>
             </div>
           </div>
 
@@ -164,13 +167,13 @@ const Messages = () => {
             {messages.map((message, index) => (
               <div
                 key={message.id}
-                className={`flex ${message.sender === 'student' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-5 duration-500`}
+                className={`flex ${message.sender === 'student' ? 'justify-end' : 'justify-start'} animate-in slide-in-from-bottom-5 duration-700 hover:scale-[1.02] transition-all duration-300`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
+                <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl transition-all duration-300 hover:shadow-lg ${
                   message.sender === 'student'
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                    : 'bg-gray-100 text-gray-800'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                 }`}>
                   <p className="text-sm leading-relaxed">{message.content}</p>
                   <div className={`flex items-center justify-end space-x-1 mt-2 text-xs ${
@@ -186,7 +189,7 @@ const Messages = () => {
             ))}
             
             {isSending && (
-              <div className="flex justify-end">
+              <div className="flex justify-end animate-in slide-in-from-bottom-5 duration-500">
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-3 rounded-2xl max-w-xs">
                   <div className="flex items-center space-x-2">
                     <div className="flex space-x-1">
@@ -210,14 +213,14 @@ const Messages = () => {
                   onChange={(e) => setNewMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Koçuna mesaj gönder..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none hover:shadow-lg transition-all duration-300 focus:shadow-xl hover:scale-[1.01]"
                   rows={2}
                 />
               </div>
               <button
                 onClick={sendMessage}
                 disabled={!newMessage.trim() || isSending}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white p-3 rounded-xl transition-all duration-300 hover:scale-105 disabled:hover:scale-100"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white p-3 rounded-xl transition-all duration-500 hover:scale-110 disabled:hover:scale-100 hover:shadow-xl animate-pulse hover:animate-bounce"
               >
                 <FaPaperPlane size={20} />
               </button>
@@ -228,9 +231,14 @@ const Messages = () => {
         {/* Sidebar Info */}
         <div className="space-y-6 animate-in slide-in-from-right-10 duration-1000 delay-400">
           {/* WhatsApp Support */}
-          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white">
+          <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white hover:from-green-600 hover:to-green-700 transition-all duration-500 hover:scale-105 hover:shadow-xl relative overflow-hidden">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-2 right-2 w-12 h-12 bg-white rounded-full animate-pulse"></div>
+              <div className="absolute bottom-2 left-2 w-8 h-8 bg-yellow-400 rounded-full animate-bounce delay-1000"></div>
+            </div>
             <div className="flex items-center space-x-3 mb-4">
-              <FaWhatsapp size={32} className="animate-pulse" />
+              <FaWhatsapp size={32} className="animate-bounce" />
               <div>
                 <h3 className="font-bold text-lg">WhatsApp Destek</h3>
                 <p className="text-green-100 text-sm">Hızlı yanıt için</p>
@@ -241,16 +249,16 @@ const Messages = () => {
               Acil durumlar için WhatsApp üzerinden 7/24 destek alabilirsin.
             </p>
             
-            <button className="w-full bg-white text-green-600 hover:bg-green-50 px-4 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+            <button className="w-full bg-white text-green-600 hover:bg-green-50 px-4 py-3 rounded-xl font-semibold transition-all duration-500 hover:scale-110 flex items-center justify-center space-x-2 hover:shadow-lg animate-pulse hover:animate-bounce">
               <FaWhatsapp size={20} />
               <span>WhatsApp'ta Yaz</span>
             </button>
           </div>
 
           {/* Response Time */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 hover:scale-105">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-blue-100 rounded-xl">
+              <div className="p-2 bg-blue-100 rounded-xl hover:bg-blue-200 transition-all duration-300 hover:scale-110 hover:rotate-12">
                 <FaClock className="text-blue-600" size={20} />
               </div>
               <div>
@@ -268,21 +276,21 @@ const Messages = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500 hover:scale-105">
             <h3 className="font-bold text-slate-800 mb-4">Hızlı İşlemler</h3>
             
             <div className="space-y-3">
-              <button className="w-full text-left p-3 bg-gray-50 hover:bg-blue-50 rounded-xl transition-all duration-300 hover:scale-105">
+              <button className="w-full text-left p-3 bg-gray-50 hover:bg-blue-50 rounded-xl transition-all duration-500 hover:scale-110 hover:shadow-lg animate-in slide-in-from-left-10 duration-1000">
                 <div className="font-medium text-slate-800">📅 Randevu Al</div>
                 <div className="text-sm text-gray-600">Yeni ders randevusu</div>
               </button>
               
-              <button className="w-full text-left p-3 bg-gray-50 hover:bg-green-50 rounded-xl transition-all duration-300 hover:scale-105">
+              <button className="w-full text-left p-3 bg-gray-50 hover:bg-green-50 rounded-xl transition-all duration-500 hover:scale-110 hover:shadow-lg animate-in slide-in-from-left-10 duration-1000 delay-200">
                 <div className="font-medium text-slate-800">📊 Deneme Paylaş</div>
                 <div className="text-sm text-gray-600">Sonuçları analiz et</div>
               </button>
               
-              <button className="w-full text-left p-3 bg-gray-50 hover:bg-purple-50 rounded-xl transition-all duration-300 hover:scale-105">
+              <button className="w-full text-left p-3 bg-gray-50 hover:bg-purple-50 rounded-xl transition-all duration-500 hover:scale-110 hover:shadow-lg animate-in slide-in-from-left-10 duration-1000 delay-400">
                 <div className="font-medium text-slate-800">❓ Soru Sor</div>
                 <div className="text-sm text-gray-600">Konu hakkında</div>
               </button>

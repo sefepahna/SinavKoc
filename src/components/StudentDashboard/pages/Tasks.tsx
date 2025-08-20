@@ -165,17 +165,17 @@ const Tasks = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-top-10 duration-700">
+      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-top-10 duration-700 hover:shadow-xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex flex-col md:flex-row md:items-center justify-between space-y-4 md:space-y-0">
           <div>
-            <h1 className="text-2xl font-bold text-slate-800 mb-2">Ödevler / Görevler</h1>
-            <p className="text-gray-600">Günlük ve haftalık görevlerini takip et</p>
+            <h1 className="text-2xl font-bold text-slate-800 mb-2 animate-in slide-in-from-left-10 duration-1000">Ödevler / Görevler</h1>
+            <p className="text-gray-600 animate-in slide-in-from-left-10 duration-1000 delay-200">Günlük ve haftalık görevlerini takip et</p>
           </div>
           
           <div className="flex items-center space-x-3">
             <button
               onClick={markAllCompleted}
-              className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+              className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-500 hover:scale-110 hover:shadow-lg animate-pulse hover:animate-bounce"
             >
               <FaCheckDouble size={16} />
               <span>Tümünü Tamamla</span>
@@ -183,7 +183,7 @@ const Tasks = () => {
             
             <button
               onClick={() => setShowAddTask(true)}
-              className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+              className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-500 hover:scale-110 hover:shadow-lg animate-pulse hover:animate-bounce"
             >
               <FaPlus size={16} />
               <span>Yeni Görev</span>
@@ -193,16 +193,18 @@ const Tasks = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-left-10 duration-700 delay-200">
+      <div className="bg-white rounded-2xl shadow-lg p-6 animate-in slide-in-from-left-10 duration-700 delay-200 hover:shadow-xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-medium text-gray-700">İlerleme</span>
           <span className="text-sm font-bold text-slate-800">{completedCount}/{totalCount}</span>
         </div>
-        <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
+        <div className="bg-gray-200 rounded-full h-3 overflow-hidden hover:h-4 transition-all duration-300">
           <div 
-            className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full transition-all duration-700 ease-out"
+            className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full transition-all duration-700 ease-out hover:from-green-600 hover:to-blue-600 hover:shadow-lg"
             style={{ width: `${totalCount > 0 ? (completedCount / totalCount) * 100 : 0}%` }}
-          ></div>
+          >
+            <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+          </div>
         </div>
         <div className="text-xs text-gray-500 mt-2">
           {totalCount > 0 ? `%${Math.round((completedCount / totalCount) * 100)} tamamlandı` : 'Henüz görev yok'}
@@ -210,14 +212,14 @@ const Tasks = () => {
       </div>
 
       {/* Tabs */}
-      <div className="bg-white rounded-2xl shadow-lg animate-in slide-in-from-right-10 duration-700 delay-400">
+      <div className="bg-white rounded-2xl shadow-lg animate-in slide-in-from-right-10 duration-700 delay-400 hover:shadow-xl transition-all duration-500">
         <div className="flex border-b border-gray-200">
           <button
             onClick={() => setActiveTab('today')}
-            className={`flex-1 flex items-center justify-center space-x-2 px-6 py-4 font-semibold transition-all duration-300 ${
+            className={`flex-1 flex items-center justify-center space-x-2 px-6 py-4 font-semibold transition-all duration-500 ${
               activeTab === 'today'
-                ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50 animate-pulse'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50 hover:scale-105'
             }`}
           >
             <FaCalendarDay size={20} />
@@ -229,10 +231,10 @@ const Tasks = () => {
           
           <button
             onClick={() => setActiveTab('week')}
-            className={`flex-1 flex items-center justify-center space-x-2 px-6 py-4 font-semibold transition-all duration-300 ${
+            className={`flex-1 flex items-center justify-center space-x-2 px-6 py-4 font-semibold transition-all duration-500 ${
               activeTab === 'week'
-                ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50'
-                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50 animate-pulse'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50 hover:scale-105'
             }`}
           >
             <FaCalendarWeek size={20} />
@@ -250,7 +252,7 @@ const Tasks = () => {
               {currentTasks.map((task, index) => (
                 <div
                   key={task.id}
-                  className="bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-all duration-500 hover:scale-[1.02] animate-in slide-in-from-left-10"
+                  className="bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-all duration-500 hover:scale-[1.02] hover:shadow-lg animate-in slide-in-from-left-10"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start space-x-4">
@@ -260,10 +262,10 @@ const Tasks = () => {
                                          task.status === 'Devam' ? 'Bitti' : 'Bekliyor';
                         updateTaskStatus(task.id, nextStatus);
                       }}
-                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+                      className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-500 hover:scale-125 ${
                         task.status === 'Bitti' 
-                          ? 'bg-green-500 border-green-500' 
-                          : 'border-gray-300 hover:border-blue-500'
+                          ? 'bg-green-500 border-green-500 animate-pulse' 
+                          : 'border-gray-300 hover:border-blue-500 hover:bg-blue-100'
                       }`}
                     >
                       {task.status === 'Bitti' && <FaCheck className="text-white" size={12} />}
@@ -271,31 +273,31 @@ const Tasks = () => {
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between mb-2">
-                        <h3 className={`font-semibold text-slate-800 ${
+                        <h3 className={`font-semibold text-slate-800 transition-all duration-300 ${
                           task.status === 'Bitti' ? 'line-through opacity-60' : ''
                         }`}>
                           {task.title}
                         </h3>
                         
-                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(task.status)}`}>
+                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border transition-all duration-300 hover:scale-110 ${getStatusColor(task.status)} ${task.status === 'Bitti' ? 'animate-pulse' : task.status === 'Devam' ? 'animate-bounce' : ''}`}>
                           {task.status}
                         </span>
                       </div>
 
                       <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
                         <div className="flex items-center space-x-1">
-                          <div className={`w-3 h-3 rounded-full ${getSubjectColor(task.subject)}`}></div>
+                          <div className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-150 ${getSubjectColor(task.subject)} animate-pulse`}></div>
                           <span>{task.subject}</span>
                         </div>
                         
                         <div className="flex items-center space-x-1">
-                          <FaClock size={12} />
+                          <FaClock size={12} className="animate-pulse" />
                           <span>{task.estimatedTime}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center space-x-1 text-sm text-blue-600">
-                        <FaBook size={12} />
+                        <FaBook size={12} className="animate-bounce" />
                         <span>{task.resource}</span>
                       </div>
                     </div>
@@ -305,7 +307,7 @@ const Tasks = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <FaTasks className="mx-auto text-gray-300 mb-4" size={64} />
+              <FaTasks className="mx-auto text-gray-300 mb-4 animate-pulse" size={64} />
               <h3 className="text-xl font-bold text-gray-600 mb-2">
                 {activeTab === 'today' ? 'Bugün için görev yok' : 'Bu hafta için görev yok'}
               </h3>
@@ -317,7 +319,7 @@ const Tasks = () => {
               </p>
               <button
                 onClick={() => setShowAddTask(true)}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-500 hover:scale-110 hover:shadow-xl animate-pulse hover:animate-bounce"
               >
                 İlk Görevi Ekle
               </button>
@@ -328,8 +330,8 @@ const Tasks = () => {
 
       {/* Add Task Modal */}
       {showAddTask && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in zoom-in-50 duration-300">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in zoom-in-50 duration-500 hover:shadow-3xl">
             <h3 className="text-xl font-bold text-slate-800 mb-6">Yeni Görev Ekle</h3>
             
             <div className="space-y-4">
@@ -339,7 +341,7 @@ const Tasks = () => {
                   type="text"
                   value={newTask.title}
                   onChange={(e) => setNewTask(prev => ({ ...prev, title: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:shadow-lg transition-all duration-300 focus:shadow-xl hover:scale-[1.02]"
                   placeholder="Örn: Matematik soru çözümü"
                 />
               </div>
@@ -349,7 +351,7 @@ const Tasks = () => {
                 <select
                   value={newTask.subject}
                   onChange={(e) => setNewTask(prev => ({ ...prev, subject: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:shadow-lg transition-all duration-300 focus:shadow-xl hover:scale-[1.02]"
                 >
                   <option value="">Ders seçin</option>
                   <option value="Matematik">Matematik</option>
@@ -369,7 +371,7 @@ const Tasks = () => {
                   type="text"
                   value={newTask.estimatedTime}
                   onChange={(e) => setNewTask(prev => ({ ...prev, estimatedTime: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:shadow-lg transition-all duration-300 focus:shadow-xl hover:scale-[1.02]"
                   placeholder="Örn: 45 dk"
                 />
               </div>
@@ -380,7 +382,7 @@ const Tasks = () => {
                   type="text"
                   value={newTask.resource}
                   onChange={(e) => setNewTask(prev => ({ ...prev, resource: e.target.value }))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent hover:shadow-lg transition-all duration-300 focus:shadow-xl hover:scale-[1.02]"
                   placeholder="Örn: Ders kitabı sayfa 120-135"
                 />
               </div>
@@ -389,13 +391,13 @@ const Tasks = () => {
             <div className="flex space-x-3 mt-6">
               <button
                 onClick={() => setShowAddTask(false)}
-                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-xl font-semibold transition-all duration-300"
+                className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-xl font-semibold transition-all duration-500 hover:scale-105"
               >
                 İptal
               </button>
               <button
                 onClick={addNewTask}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300"
+                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-xl font-semibold transition-all duration-500 hover:scale-110 hover:shadow-xl"
               >
                 Ekle
               </button>

@@ -82,71 +82,82 @@ const Overview = () => {
   return (
     <div className="space-y-6">
       {/* Enhanced Pro Upgrade Banner */}
-      <div className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-2xl p-6 text-white animate-in slide-in-from-top-10 duration-1000 shadow-xl">
+      <div className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-2xl p-6 text-white animate-in slide-in-from-top-10 duration-1000 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-2 right-2 w-16 h-16 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-2 left-2 w-12 h-12 bg-yellow-300 rounded-full animate-bounce delay-500"></div>
+        </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
-              <FaCrown size={28} className="animate-pulse" />
+            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all duration-300 hover:scale-110 hover:rotate-12">
+              <FaCrown size={28} className="animate-bounce text-yellow-300" />
             </div>
             <div>
               <div className="text-xl font-bold mb-1">SınavKoç Pro'ya Geç!</div>
               <div className="text-sm opacity-90">Sınırsız deneme analizi, kişisel koç desteği ve garantili başarı</div>
               <div className="flex items-center space-x-4 mt-2 text-sm">
-                <span className="bg-white/20 px-2 py-1 rounded-full">✨ Premium Özellikler</span>
-                <span className="bg-white/20 px-2 py-1 rounded-full">🎯 %95 Başarı Oranı</span>
+                <span className="bg-white/20 px-2 py-1 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-105">✨ Premium Özellikler</span>
+                <span className="bg-white/20 px-2 py-1 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-105">🎯 %95 Başarı Oranı</span>
               </div>
             </div>
           </div>
-          <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg">
+          <button className="bg-white text-orange-600 hover:bg-orange-50 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-500 hover:scale-110 shadow-lg hover:shadow-xl animate-pulse hover:animate-bounce">
             Hemen Yükselt
           </button>
         </div>
       </div>
 
       {/* Enhanced Hero Card */}
-      <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 text-white animate-in slide-in-from-left-10 duration-1000 delay-200 shadow-2xl">
+      <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 text-white animate-in slide-in-from-left-10 duration-1000 delay-200 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
+        {/* Floating animation elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-4 right-4 w-20 h-20 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-4 left-4 w-16 h-16 bg-yellow-400 rounded-full animate-bounce delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-pink-400 rounded-full animate-pulse delay-2000"></div>
+        </div>
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold mb-3">Merhaba, Ayşe! 👋</h1>
-            <p className="text-blue-100 text-xl">Bugün de harika bir gün olacak!</p>
+            <h1 className="text-4xl font-bold mb-3 animate-in slide-in-from-left-10 duration-1000">Merhaba, Ayşe! 👋</h1>
+            <p className="text-blue-100 text-xl animate-in slide-in-from-left-10 duration-1000 delay-300">Bugün de harika bir gün olacak!</p>
             <div className="flex items-center space-x-4 mt-3 text-sm">
               <div className="flex items-center space-x-1">
-                <FaFire className="text-orange-400" />
+                <FaFire className="text-orange-400 animate-pulse" />
                 <span>{streak} günlük seri</span>
               </div>
               <div className="flex items-center space-x-1">
-                <FaBullseye className="text-green-400" />
+                <FaBullseye className="text-green-400 animate-bounce" />
                 <span>Hedef: 450 puan</span>
               </div>
             </div>
           </div>
           <div className="text-right">
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-3">
-              <FaCrown className="text-yellow-400" size={24} />
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-3 hover:bg-white/30 transition-all duration-300 hover:scale-105">
+              <FaCrown className="text-yellow-400 animate-pulse" size={24} />
               <span className="font-bold text-lg">SınavKoç Plus</span>
             </div>
-            <div className="text-blue-100 text-sm">Aktif üyelik</div>
+            <div className="text-blue-100 text-sm animate-in fade-in duration-1000 delay-500">Aktif üyelik</div>
           </div>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-            <FaClock className="mx-auto mb-3 text-blue-200" size={28} />
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-500 transform hover:scale-110 hover:shadow-xl animate-in slide-in-from-bottom-10 duration-1000 delay-400">
+            <FaClock className="mx-auto mb-3 text-blue-200 animate-pulse" size={28} />
             <div className="text-3xl font-bold mb-1">{studyHours}</div>
             <div className="text-sm text-blue-200">Saat Bu Hafta</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-            <FaTasks className="mx-auto mb-3 text-green-200" size={28} />
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-500 transform hover:scale-110 hover:shadow-xl animate-in slide-in-from-bottom-10 duration-1000 delay-500">
+            <FaTasks className="mx-auto mb-3 text-green-200 animate-bounce" size={28} />
             <div className="text-3xl font-bold mb-1">{completedTasks}</div>
             <div className="text-sm text-green-200">Tamamlanan</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-            <FaChartLine className="mx-auto mb-3 text-yellow-200" size={28} />
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-500 transform hover:scale-110 hover:shadow-xl animate-in slide-in-from-bottom-10 duration-1000 delay-600">
+            <FaChartLine className="mx-auto mb-3 text-yellow-200 animate-pulse" size={28} />
             <div className="text-3xl font-bold mb-1">{lastExamScore}</div>
             <div className="text-sm text-yellow-200">Son Net</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-            <FaFire className="mx-auto mb-3 text-orange-200" size={28} />
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-500 transform hover:scale-110 hover:shadow-xl animate-in slide-in-from-bottom-10 duration-1000 delay-700">
+            <FaFire className="mx-auto mb-3 text-orange-200 animate-bounce" size={28} />
             <div className="text-3xl font-bold mb-1">{streak}</div>
             <div className="text-sm text-orange-200">Gün Streak</div>
           </div>
@@ -154,10 +165,10 @@ const Overview = () => {
       </div>
 
       {/* Today's Tasks Preview */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-300 border border-gray-100">
+      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-300 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl">
+            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <FaCalendarDay className="text-white" size={20} />
             </div>
             <div>
@@ -165,7 +176,7 @@ const Overview = () => {
               <p className="text-sm text-gray-600">{todaysTasks.filter(t => !t.completed).length} görev kaldı</p>
             </div>
           </div>
-          <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors duration-300">
+          <button className="text-blue-600 hover:text-blue-700 font-semibold text-sm transition-all duration-300 hover:scale-105 hover:translate-x-1">
             Tümünü Gör →
           </button>
         </div>
@@ -174,29 +185,30 @@ const Overview = () => {
           {todaysTasks.slice(0, 3).map((task, index) => (
             <div
               key={task.id}
-              className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
+              className={`flex items-center space-x-4 p-4 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-lg animate-in slide-in-from-left-10 duration-1000 ${
                 task.completed 
-                  ? 'bg-green-50 border border-green-200' 
-                  : 'bg-gray-50 border border-gray-200 hover:border-blue-300'
+                  ? 'bg-green-50 border border-green-200 hover:bg-green-100' 
+                  : 'bg-gray-50 border border-gray-200 hover:border-blue-300 hover:bg-blue-50'
               }`}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:scale-125 ${
                 task.completed 
-                  ? 'bg-green-500 border-green-500' 
-                  : 'border-gray-300 hover:border-blue-500'
+                  ? 'bg-green-500 border-green-500 animate-pulse' 
+                  : 'border-gray-300 hover:border-blue-500 hover:bg-blue-100'
               }`}>
                 {task.completed && <span className="text-white text-xs">✓</span>}
               </div>
               <div className="flex-1">
-                <div className={`font-semibold ${task.completed ? 'line-through text-green-700' : 'text-slate-800'}`}>
+                <div className={`font-semibold transition-all duration-300 ${task.completed ? 'line-through text-green-700' : 'text-slate-800 hover:text-blue-600'}`}>
                   {task.title}
                 </div>
                 <div className="text-sm text-gray-600">{task.time}</div>
               </div>
               <div className={`px-3 py-1 rounded-full text-xs font-medium ${
                 task.completed 
-                  ? 'bg-green-100 text-green-800' 
-                  : 'bg-blue-100 text-blue-800'
+                  ? 'bg-green-100 text-green-800 animate-pulse' 
+                  : 'bg-blue-100 text-blue-800 hover:bg-blue-200 transition-all duration-300'
               }`}>
                 {task.completed ? 'Tamamlandı' : 'Bekliyor'}
               </div>
@@ -218,9 +230,9 @@ const Overview = () => {
       {/* Enhanced Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Weekly Study Hours */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-left-10 duration-1000 delay-800 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-left-10 duration-1000 delay-800 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl">
+            <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <FaClock className="text-white" size={20} />
             </div>
             <div>
@@ -231,21 +243,21 @@ const Overview = () => {
           
           <div className="space-y-4">
             {weeklyData.map((day, index) => (
-              <div key={day.day} className="space-y-2">
+              <div key={day.day} className="space-y-2 animate-in slide-in-from-left-10 duration-1000" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 text-sm font-bold text-gray-700">{day.day}</div>
-                    <div className={`w-3 h-3 rounded-full ${
-                      day.hours >= day.target ? 'bg-green-500' : 'bg-orange-500'
+                    <div className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-150 ${
+                      day.hours >= day.target ? 'bg-green-500 animate-pulse' : 'bg-orange-500 animate-bounce'
                     }`}></div>
                   </div>
                   <div className="text-sm font-bold text-slate-800">{day.hours}s / {day.target}s</div>
                 </div>
                 
                 <div className="flex space-x-2">
-                  <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden hover:h-4 transition-all duration-300">
                     <div 
-                      className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
+                      className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out hover:from-blue-600 hover:to-purple-600"
                       style={{ 
                         width: `${Math.min((day.hours / day.target) * 100, 100)}%`,
                         animationDelay: `${index * 100}ms`
@@ -254,7 +266,7 @@ const Overview = () => {
                   </div>
                   <div className="w-16 bg-gray-100 rounded-full h-3 overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-1000 ease-out opacity-50"
+                      className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full transition-all duration-1000 ease-out opacity-50 hover:opacity-75"
                       style={{ width: '100%' }}
                     ></div>
                   </div>
@@ -263,7 +275,7 @@ const Overview = () => {
             ))}
           </div>
           
-          <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+          <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 hover:scale-105">
             <div className="text-center">
               <div className="text-sm text-gray-700 mb-1">Bu hafta hedefin</div>
               <div className="text-2xl font-bold text-blue-600">
@@ -275,9 +287,9 @@ const Overview = () => {
         </div>
 
         {/* Enhanced Subject Progress */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-1000 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-right-10 duration-1000 delay-1000 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl">
+            <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <FaChartLine className="text-white" size={20} />
             </div>
             <div>
@@ -288,32 +300,32 @@ const Overview = () => {
           
           <div className="space-y-6">
             {subjectProgress.map((subject, index) => (
-              <div key={subject.subject} className="space-y-3">
+              <div key={subject.subject} className="space-y-3 animate-in slide-in-from-right-10 duration-1000" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${subject.color}`}></div>
+                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${subject.color} hover:scale-150 transition-all duration-300 animate-pulse`}></div>
                     <span className="font-semibold text-gray-700">{subject.subject}</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <span className="text-lg font-bold text-slate-800">{subject.current}</span>
                     <div className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-bold ${
-                      subject.change > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                      subject.change > 0 ? 'bg-green-100 text-green-700 animate-pulse' : 'bg-red-100 text-red-700 animate-bounce'
                     }`}>
-                      <FaArrowUp size={10} className={subject.change < 0 ? 'rotate-180' : ''} />
+                      <FaArrowUp size={10} className={`transition-transform duration-300 ${subject.change < 0 ? 'rotate-180' : ''}`} />
                       <span>{Math.abs(subject.change)}</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="bg-gray-200 rounded-full h-3 overflow-hidden hover:h-4 transition-all duration-300">
                   <div 
-                    className={`h-full bg-gradient-to-r ${subject.color} rounded-full transition-all duration-1000 ease-out relative`}
+                    className={`h-full bg-gradient-to-r ${subject.color} rounded-full transition-all duration-1000 ease-out relative hover:shadow-lg`}
                     style={{ 
                       width: `${subject.current}%`,
                       animationDelay: `${index * 200}ms`
                     }}
                   >
-                    <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 bg-white/30 rounded-full animate-pulse"></div>
                   </div>
                 </div>
                 
@@ -329,9 +341,9 @@ const Overview = () => {
       </div>
 
       {/* Upcoming Events */}
-      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-bottom-10 duration-1000 delay-600 border border-gray-100">
+      <div className="bg-white rounded-2xl shadow-xl p-6 animate-in slide-in-from-bottom-10 duration-1000 delay-600 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01]">
         <div className="flex items-center space-x-3 mb-6">
-          <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
+          <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
             <FaBolt className="text-white" size={20} />
           </div>
           <div>
@@ -344,12 +356,16 @@ const Overview = () => {
           {upcomingEvents.map((event, index) => (
             <div
               key={event.id}
-              className="p-4 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:scale-105"
+              className="p-4 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-500 hover:scale-105 hover:shadow-lg animate-in slide-in-from-bottom-10 duration-1000"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="flex items-center space-x-3 mb-2">
-                <div className={`w-3 h-3 rounded-full ${
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-150 ${
                   event.type === 'lesson' ? 'bg-blue-500' :
                   event.type === 'exam' ? 'bg-red-500' : 'bg-green-500'
+                } ${
+                  event.type === 'lesson' ? 'animate-pulse' :
+                  event.type === 'exam' ? 'animate-bounce' : 'animate-ping'
                 }`}></div>
                 <span className="font-semibold text-slate-800">{event.title}</span>
               </div>
@@ -364,13 +380,13 @@ const Overview = () => {
 
       {/* Enhanced Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in slide-in-from-bottom-10 duration-1000 delay-800">
-        <button className="bg-white hover:bg-blue-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-300 hover:scale-105 hover:shadow-2xl group border border-gray-100">
+        <button className="bg-white hover:bg-blue-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-500 hover:scale-110 hover:shadow-2xl group border border-gray-100 hover:border-blue-300 animate-in slide-in-from-left-10 duration-1000">
           <div className="flex items-center space-x-4">
-            <div className="p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-300 transform group-hover:scale-110">
+            <div className="p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-500 transform group-hover:scale-125 group-hover:rotate-12">
               <FaCalendarDay className="text-white" size={28} />
             </div>
             <div>
-              <div className="font-bold text-slate-800 group-hover:text-blue-600 transition-colors duration-300 text-lg">
+              <div className="font-bold text-slate-800 group-hover:text-blue-600 transition-colors duration-500 text-lg">
                 Bugünün Planını Gör
               </div>
               <div className="text-sm text-gray-600">5 görev seni bekliyor</div>
@@ -379,13 +395,13 @@ const Overview = () => {
           </div>
         </button>
 
-        <button className="bg-white hover:bg-green-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-300 hover:scale-105 hover:shadow-2xl group border border-gray-100">
+        <button className="bg-white hover:bg-green-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-500 hover:scale-110 hover:shadow-2xl group border border-gray-100 hover:border-green-300 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
           <div className="flex items-center space-x-4">
-            <div className="p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl group-hover:from-green-600 group-hover:to-green-700 transition-all duration-300 transform group-hover:scale-110">
+            <div className="p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl group-hover:from-green-600 group-hover:to-green-700 transition-all duration-500 transform group-hover:scale-125 group-hover:rotate-12">
               <FaUpload className="text-white" size={28} />
             </div>
             <div>
-              <div className="font-bold text-slate-800 group-hover:text-green-600 transition-colors duration-300 text-lg">
+              <div className="font-bold text-slate-800 group-hover:text-green-600 transition-colors duration-500 text-lg">
                 Deneme Sonucu Yükle
               </div>
               <div className="text-sm text-gray-600">Analizini hemen gör</div>
@@ -394,13 +410,13 @@ const Overview = () => {
           </div>
         </button>
 
-        <button className="bg-white hover:bg-purple-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-300 hover:scale-105 hover:shadow-2xl group border border-gray-100">
+        <button className="bg-white hover:bg-purple-50 rounded-2xl shadow-xl p-6 text-left transition-all duration-500 hover:scale-110 hover:shadow-2xl group border border-gray-100 hover:border-purple-300 animate-in slide-in-from-right-10 duration-1000 delay-400">
           <div className="flex items-center space-x-4">
-            <div className="p-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl group-hover:from-purple-600 group-hover:to-purple-700 transition-all duration-300 transform group-hover:scale-110">
+            <div className="p-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl group-hover:from-purple-600 group-hover:to-purple-700 transition-all duration-500 transform group-hover:scale-125 group-hover:rotate-12">
               <FaComments className="text-white" size={28} />
             </div>
             <div>
-              <div className="font-bold text-slate-800 group-hover:text-purple-600 transition-colors duration-300 text-lg">
+              <div className="font-bold text-slate-800 group-hover:text-purple-600 transition-colors duration-500 text-lg">
                 Koçumla Mesajlaş
               </div>
               <div className="text-sm text-gray-600">2 yeni mesaj var</div>

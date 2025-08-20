@@ -109,11 +109,17 @@ const CoachLeaderboard = () => {
   const averageImprovement = Math.round(currentData.reduce((sum, student) => sum + student.improvement, 0) / totalStudents);
 
   return (
-    <div className="bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-xl p-8 border border-blue-100">
+    <div className="bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-2xl shadow-xl p-8 border border-blue-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-8 right-8 w-20 h-20 bg-yellow-400 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-8 left-8 w-16 h-16 bg-blue-500 rounded-full animate-bounce delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-12 h-12 bg-purple-500 rounded-full animate-pulse delay-2000"></div>
+      </div>
       {/* Enhanced Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 space-y-4 lg:space-y-0">
         <div className="flex items-center space-x-4">
-          <div className="p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl">
+          <div className="p-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 hover:scale-110 hover:rotate-12">
             <FaTrophy className="text-white" size={24} />
           </div>
           <div>
@@ -127,23 +133,23 @@ const CoachLeaderboard = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-          <div className="flex bg-gray-100 rounded-xl p-1 shadow-inner">
+          <div className="flex bg-gray-100 rounded-xl p-1 shadow-inner hover:shadow-lg transition-all duration-300">
             <button
               onClick={() => setTimeFilter('weekly')}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-500 ${
                 timeFilter === 'weekly'
-                  ? 'bg-white text-blue-600 shadow-md transform scale-105'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-blue-600 shadow-md transform scale-105 animate-pulse'
+                  : 'text-gray-600 hover:text-gray-900 hover:scale-105'
               }`}
             >
               Haftalık
             </button>
             <button
               onClick={() => setTimeFilter('monthly')}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-500 ${
                 timeFilter === 'monthly'
-                  ? 'bg-white text-blue-600 shadow-md transform scale-105'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-blue-600 shadow-md transform scale-105 animate-pulse'
+                  : 'text-gray-600 hover:text-gray-900 hover:scale-105'
               }`}
             >
               Aylık
@@ -153,7 +159,7 @@ const CoachLeaderboard = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            className="px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <option value="studyTime">Çalışma Saatine Göre</option>
             <option value="improvement">Gelişime Göre</option>
@@ -164,23 +170,23 @@ const CoachLeaderboard = () => {
 
       {/* Enhanced Statistics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white text-center shadow-lg">
-          <FaUsers className="mx-auto mb-2" size={24} />
+        <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-left-10 duration-1000">
+          <FaUsers className="mx-auto mb-2 animate-bounce" size={24} />
           <div className="text-2xl font-bold">{totalStudents}</div>
           <div className="text-xs text-blue-100">Toplam Öğrenci</div>
         </div>
-        <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 text-white text-center shadow-lg">
-          <FaClock className="mx-auto mb-2" size={24} />
+        <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-4 text-white text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
+          <FaClock className="mx-auto mb-2 animate-pulse" size={24} />
           <div className="text-2xl font-bold">{totalStudyTime}h</div>
           <div className="text-xs text-green-100">Toplam Çalışma</div>
         </div>
-        <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 text-white text-center shadow-lg">
-          <FaChartLine className="mx-auto mb-2" size={24} />
+        <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-4 text-white text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-right-10 duration-1000 delay-400">
+          <FaChartLine className="mx-auto mb-2 animate-bounce" size={24} />
           <div className="text-2xl font-bold">{averageStudyTime}h</div>
           <div className="text-xs text-purple-100">Ortalama Çalışma</div>
         </div>
-        <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 text-white text-center shadow-lg">
-          <FaArrowUp className="mx-auto mb-2" size={24} />
+        <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-4 text-white text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 animate-in slide-in-from-top-10 duration-1000 delay-600">
+          <FaArrowUp className="mx-auto mb-2 animate-pulse" size={24} />
           <div className="text-2xl font-bold">+{averageImprovement}%</div>
           <div className="text-xs text-orange-100">Ortalama Gelişim</div>
         </div>
@@ -191,7 +197,8 @@ const CoachLeaderboard = () => {
         {sortedData.map((student, index) => (
           <div
             key={student.id}
-            className={`p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] ${getRankColor(student.rank)} shadow-lg`}
+            className={`p-6 rounded-2xl border-2 transition-all duration-500 hover:shadow-2xl transform hover:scale-[1.03] ${getRankColor(student.rank)} shadow-lg animate-in slide-in-from-bottom-10 duration-1000`}
+            style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-6">
@@ -199,7 +206,7 @@ const CoachLeaderboard = () => {
                   <div className="flex-shrink-0">
                     {getRankIcon(student.rank)}
                   </div>
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold ${getAvatarColor(student.rank)}`}>
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 hover:scale-110 ${getAvatarColor(student.rank)}`}>
                     {student.avatar}
                   </div>
                 </div>
@@ -223,16 +230,16 @@ const CoachLeaderboard = () => {
                   <div className={`flex items-center space-x-4 text-sm ${
                     student.rank <= 3 ? 'text-white opacity-90' : 'text-gray-600'
                   }`}>
-                    <div className="flex items-center space-x-1">
-                      <FaClock size={12} />
+                    <div className="flex items-center space-x-1 hover:scale-110 transition-all duration-300">
+                      <FaClock size={12} className="animate-pulse" />
                       <span>{student.studyTime}h çalışma</span>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <FaFire size={12} />
+                    <div className="flex items-center space-x-1 hover:scale-110 transition-all duration-300">
+                      <FaFire size={12} className="animate-bounce" />
                       <span>{student.streak} gün streak</span>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <FaChartLine size={12} />
+                    <div className="flex items-center space-x-1 hover:scale-110 transition-all duration-300">
+                      <FaChartLine size={12} className="animate-pulse" />
                       <span>+{student.improvement}% gelişim</span>
                     </div>
                   </div>
@@ -259,18 +266,18 @@ const CoachLeaderboard = () => {
             
             {/* Enhanced Progress bar */}
             <div className="mt-6">
-              <div className={`w-full rounded-full h-4 overflow-hidden ${
+              <div className={`w-full rounded-full h-4 overflow-hidden hover:h-5 transition-all duration-300 ${
                 student.rank <= 3 ? 'bg-white bg-opacity-30' : 'bg-gray-200'
               }`}>
                 <div
-                  className={`rounded-full h-4 transition-all duration-1000 ease-out relative ${
+                  className={`rounded-full h-4 transition-all duration-1000 ease-out relative hover:shadow-lg ${
                     student.rank <= 3 ? 'bg-white' : 'bg-gradient-to-r from-blue-500 to-purple-500'
                   }`}
                   style={{
                     width: `${(student.studyTime / sortedData[0].studyTime) * 100}%`
                   }}
                 >
-                  <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 bg-white/30 rounded-full animate-pulse"></div>
                 </div>
               </div>
               <div className={`flex justify-between text-xs mt-2 ${
@@ -285,10 +292,15 @@ const CoachLeaderboard = () => {
       </div>
 
       {/* Enhanced Motivation Section */}
-      <div className="mt-8 p-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white shadow-xl">
+      <div className="mt-8 p-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] relative overflow-hidden animate-in slide-in-from-bottom-10 duration-1000 delay-800">
+        {/* Floating animation elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-4 right-4 w-16 h-16 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-4 left-4 w-12 h-12 bg-yellow-400 rounded-full animate-bounce delay-1000"></div>
+        </div>
         <div className="text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <FaTrophy className="text-yellow-400" size={32} />
+            <FaTrophy className="text-yellow-400 animate-bounce" size={32} />
             <h4 className="text-2xl font-bold">
               Muhteşem Performans! 🎉
             </h4>
@@ -297,15 +309,15 @@ const CoachLeaderboard = () => {
             Öğrencileriniz bu {timeFilter === 'weekly' ? 'hafta' : 'ay'} toplam <strong>{totalStudyTime} saat</strong> çalıştı.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 hover:bg-white/30 transition-all duration-300 hover:scale-105">
               <div className="font-bold">Ortalama Çalışma</div>
               <div className="text-2xl font-bold">{averageStudyTime}h</div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 hover:bg-white/30 transition-all duration-300 hover:scale-105">
               <div className="font-bold">Ortalama Gelişim</div>
               <div className="text-2xl font-bold">+{averageImprovement}%</div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 hover:bg-white/30 transition-all duration-300 hover:scale-105">
               <div className="font-bold">En Yüksek Streak</div>
               <div className="text-2xl font-bold">{Math.max(...currentData.map(s => s.streak))} gün</div>
             </div>

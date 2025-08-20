@@ -57,9 +57,14 @@ const Sidebar: React.FC<SidebarProps> = ({
         sidebarOpen ? 'translate-x-0 scale-100 opacity-100' : '-translate-x-full scale-95 opacity-0'
       } lg:scale-100 lg:opacity-100`}>
         {/* Enhanced Header */}
-        <div className="flex items-center justify-between p-6 border-b border-blue-200 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="flex items-center justify-between p-6 border-b border-blue-200 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-0 left-0 w-20 h-20 bg-white rounded-full animate-pulse"></div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-yellow-400 rounded-full animate-bounce delay-1000"></div>
+          </div>
           <div className="flex items-center space-x-3">
-            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
+            <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all duration-300 hover:scale-110 hover:rotate-6">
               <FaGraduationCap className="text-white" size={24} />
             </div>
             <div>
@@ -69,25 +74,25 @@ const Sidebar: React.FC<SidebarProps> = ({
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
-            className="lg:hidden text-white hover:text-blue-200 transition-all duration-300 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:rotate-90"
+            className="lg:hidden text-white hover:text-blue-200 transition-all duration-500 p-2 hover:bg-white/10 rounded-lg hover:scale-110 hover:rotate-180"
           >
             <FaTimes size={20} />
           </button>
         </div>
 
         {/* User Info */}
-        <div className="p-6 border-b border-blue-200">
+        <div className="p-6 border-b border-blue-200 bg-gradient-to-r from-blue-50 to-purple-50">
           <div className="flex items-center space-x-3">
             <img
               src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=100"
               alt="Profil"
-              className="w-12 h-12 rounded-full object-cover ring-4 ring-blue-200"
+              className="w-12 h-12 rounded-full object-cover ring-4 ring-blue-200 hover:ring-purple-300 transition-all duration-300 hover:scale-110"
             />
             <div>
               <div className="font-bold text-slate-800">Ayşe Yılmaz</div>
               <div className="text-sm text-gray-600">12. Sınıf • SınavKoç Plus</div>
               <div className="flex items-center space-x-2 mt-1">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
                 <span className="text-xs text-green-600 font-medium">Aktif</span>
               </div>
             </div>
@@ -104,29 +109,29 @@ const Sidebar: React.FC<SidebarProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleItemClick(item.id)}
-                className={`w-full flex items-center justify-between px-4 py-4 rounded-xl text-left transition-all duration-300 group transform hover:scale-[1.02] ${
+                className={`w-full flex items-center justify-between px-4 py-4 rounded-xl text-left transition-all duration-500 group transform hover:scale-[1.02] hover:shadow-lg ${
                   isActive
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-[1.02]'
-                    : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                    ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white shadow-xl scale-[1.02] animate-pulse'
+                    : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 hover:shadow-md'
                 }`}
               >
                 <div className="flex items-center space-x-3">
                   <Icon 
                     size={20} 
-                    className={`transition-all duration-300 ${
-                      isActive ? 'text-white' : 'text-gray-500 group-hover:text-blue-600 group-hover:scale-110'
+                    className={`transition-all duration-500 ${
+                      isActive ? 'text-white animate-bounce' : 'text-gray-500 group-hover:text-blue-600 group-hover:scale-125 group-hover:rotate-12'
                     }`} 
                   />
                   <span className="font-semibold">{item.label}</span>
                 </div>
                 
                 {item.badge && (
-                  <span className={`inline-flex items-center justify-center min-w-[20px] h-5 text-xs font-bold rounded-full transition-all duration-300 ${
+                  <span className={`inline-flex items-center justify-center min-w-[20px] h-5 text-xs font-bold rounded-full transition-all duration-500 hover:scale-125 ${
                     isActive 
-                      ? 'bg-white/20 text-white' 
+                      ? 'bg-white/20 text-white animate-pulse' 
                       : item.badge === 'AI' 
-                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                        : 'bg-red-500 text-white'
+                        ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse'
+                        : 'bg-red-500 text-white animate-bounce'
                   }`}>
                     {item.badge}
                   </span>
@@ -137,10 +142,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         </nav>
 
         {/* Enhanced Bottom section */}
-        <div className="p-4 border-t border-blue-200">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-200">
+        <div className="p-4 border-t border-blue-200 bg-gradient-to-r from-gray-50 to-blue-50">
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-200 hover:from-blue-100 hover:to-purple-100 transition-all duration-500 hover:scale-105 hover:shadow-lg">
             <div className="flex items-center space-x-3 mb-3">
-              <FaBell className="text-blue-600" size={20} />
+              <FaBell className="text-blue-600 animate-bounce" size={20} />
               <div className="text-sm font-bold text-slate-800">
                 Yardıma mı ihtiyacın var?
               </div>
@@ -148,7 +153,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <p className="text-xs text-gray-600 mb-3">
               7/24 destek ekibimiz senin için burada!
             </p>
-            <button className="w-full text-xs text-blue-600 hover:text-blue-700 transition-colors duration-300 bg-white hover:bg-blue-50 py-2 px-3 rounded-lg font-medium">
+            <button className="w-full text-xs text-blue-600 hover:text-blue-700 transition-all duration-300 bg-white hover:bg-blue-50 py-2 px-3 rounded-lg font-medium hover:scale-105 hover:shadow-md">
               Destek ekibiyle iletişime geç →
             </button>
           </div>
