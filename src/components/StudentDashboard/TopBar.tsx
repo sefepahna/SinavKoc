@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaCalendarAlt, FaChartBar, FaBell, FaSearch, FaCog, FaSignOutAlt, FaUsers } from 'react-icons/fa';
+import { FaBars, FaCalendarAlt, FaChartBar, FaBell, FaSearch, FaCog, FaSignOutAlt, FaUsers, FaUser } from 'react-icons/fa';
 
 interface TopBarProps {
   sidebarOpen: boolean;
@@ -41,10 +41,7 @@ const TopBar: React.FC<TopBarProps> = ({ sidebarOpen, setSidebarOpen }) => {
               <FaBars size={20} />
             </button>
             
-            <div className="hidden lg:block">
-              <h1 className="text-2xl font-bold text-slate-800 animate-in slide-in-from-left-10 duration-1000">SınavKoç Öğrenci Paneli</h1>
-              <p className="text-sm text-gray-600 animate-in slide-in-from-left-10 duration-1000 delay-200">Başarıya giden yolda yanındayız</p>
-            </div>
+           
           </div>
 
           {/* Enhanced Search Bar */}
@@ -92,7 +89,7 @@ const TopBar: React.FC<TopBarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                     {notifications.map((notification, index) => (
                       <div 
                         key={notification.id} 
-                        className={`p-4 border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 hover:scale-[1.02] animate-in slide-in-from-right-5 duration-500 ${notification.unread ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''}`}
+                        className={`p-4 border-b border-gray-100 hover:bg-gray-50 transition-all hover:scale-[1.02] animate-in slide-in-from-right-5 duration-500 ${notification.unread ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''}`}
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <div className="flex items-start space-x-3">

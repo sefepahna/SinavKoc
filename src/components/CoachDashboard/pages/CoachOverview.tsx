@@ -1,4 +1,4 @@
-import React from 'react';
+import { FaChartBar } from 'react-icons/fa';
 import CoachLeaderboard from '../components/CoachLeaderboard';
 
 const CoachOverview = () => {
@@ -17,7 +17,7 @@ const CoachOverview = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 animate-in slide-in-from-left-10 duration-1000">
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all hover:scale-105 animate-in slide-in-from-left-10 duration-1000">
           <div className="flex items-center">
             <div className="p-2 bg-blue-100 rounded-lg hover:bg-blue-200 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <svg className="w-6 h-6 text-blue-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,7 +31,7 @@ const CoachOverview = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all hover:scale-105 animate-in slide-in-from-bottom-10 duration-1000 delay-200">
           <div className="flex items-center">
             <div className="p-2 bg-green-100 rounded-lg hover:bg-green-200 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <svg className="w-6 h-6 text-green-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@ const CoachOverview = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 animate-in slide-in-from-right-10 duration-1000 delay-400">
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all hover:scale-105 animate-in slide-in-from-right-10 duration-1000 delay-400">
           <div className="flex items-center">
             <div className="p-2 bg-yellow-100 rounded-lg hover:bg-yellow-200 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <svg className="w-6 h-6 text-yellow-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ const CoachOverview = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 animate-in slide-in-from-top-10 duration-1000 delay-600">
+        <div className="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-all hover:scale-105 animate-in slide-in-from-top-10 duration-1000 delay-600">
           <div className="flex items-center">
             <div className="p-2 bg-purple-100 rounded-lg hover:bg-purple-200 transition-all duration-300 hover:scale-110 hover:rotate-12">
               <svg className="w-6 h-6 text-purple-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">

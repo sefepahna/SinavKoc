@@ -49,7 +49,7 @@ const CoachDashboard = () => {
           setSidebarOpen={setSidebarOpen}
         />
         
-        <main className="flex-1 lg:ml-64 pt-16">
+        <main className="flex-1 lg:ml-72 pt-16">
           <div className="p-4 lg:p-8">
             {renderContent()}
           </div>
