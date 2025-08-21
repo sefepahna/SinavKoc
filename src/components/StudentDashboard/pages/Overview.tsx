@@ -218,11 +218,11 @@ const Overview = () => {
       </div>
 
       {/* Pomodoro ve Leaderboard Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <div className="lg:col-span-2 animate-in slide-in-from-left-10 duration-700 delay-400">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
+        <div className="lg:col-span-2 animate-in slide-in-from-left-10 duration-700 delay-400 h-full">
           <PomodoroTimer />
         </div>
-        <div className="lg:col-span-3 animate-in slide-in-from-right-10 duration-700 delay-600">
+        <div className="lg:col-span-3 animate-in slide-in-from-right-10 duration-700 delay-600 h-full">
           <Leaderboard />
         </div>
       </div>

@@ -85,7 +85,7 @@ const Leaderboard = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-2xl shadow-xl p-6 border border-purple-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] relative overflow-hidden">
+    <div className="bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-2xl shadow-xl p-6 border border-purple-100 hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] relative overflow-hidden h-full flex flex-col">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-4 right-4 w-16 h-16 bg-yellow-400 rounded-full animate-pulse"></div>
@@ -128,7 +128,7 @@ const Leaderboard = () => {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 flex-1">
         {currentData.map((student, index) => {
           const isUser = student.name === 'Sen';
           return (
