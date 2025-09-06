@@ -10,7 +10,9 @@ import {
   FaUser,
   FaTimes,
   FaChalkboardTeacher,
-  FaBell
+  FaBell,
+  FaUserFriends,
+  FaClipboardList
 } from 'react-icons/fa';
 
 interface SidebarProps {
@@ -30,8 +32,10 @@ const Sidebar: React.FC<SidebarProps> = ({
     { id: 'overview', label: 'Genel Bakış', icon: FaHome, badge: null },
     { id: 'my-students', label: 'Öğrencilerim', icon: FaUsers, badge: '24' },
     { id: 'session-calendar', label: 'Oturum Takvimi', icon: FaCalendarAlt, badge: '3' },
+    { id: 'session-transcripts', label: 'Oturum Kayıtları', icon: FaVideo, badge: 'AI' },
     { id: 'messages', label: 'Mesajlar', icon: FaComments, badge: '5' },
     { id: 'reports', label: 'Raporlar', icon: FaChartBar, badge: 'Yeni' },
+    { id: 'parent-reports', label: 'Veli Raporları', icon: FaUserFriends, badge: null },
     { id: 'resources', label: 'Kaynaklar', icon: FaFileAlt, badge: null },
     { id: 'profile', label: 'Profil', icon: FaUser, badge: null },
   ];

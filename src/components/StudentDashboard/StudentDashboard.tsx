@@ -4,10 +4,15 @@ import TopBar from './TopBar';
 import Overview from './pages/Overview';
 import StudyPlan from './pages/StudyPlan';
 import ExamAnalysis from './pages/ExamAnalysis';
+import ExamUpload from './pages/ExamUpload';
+import AIChat from './pages/AIChat';
 import Tasks from './pages/Tasks';
+import Homework from './pages/Homework';
 import Sessions from './pages/Sessions';
 import Messages from './pages/Messages';
 import Documents from './pages/Documents';
+import PsychologicalSupport from './pages/PsychologicalSupport';
+import ExamTechniques from './pages/ExamTechniques';
 import Profile from './pages/Profile';
 
 const StudentDashboard = () => {
@@ -22,14 +27,24 @@ const StudentDashboard = () => {
         return <StudyPlan />;
       case 'exam-analysis':
         return <ExamAnalysis />;
+      case 'exam-upload':
+        return <ExamUpload />;
+      case 'ai-chat':
+        return <AIChat />;
       case 'tasks':
         return <Tasks />;
+      case 'homework':
+        return <Homework />;
       case 'sessions':
         return <Sessions />;
       case 'messages':
         return <Messages />;
       case 'documents':
         return <Documents />;
+      case 'psychological-support':
+        return <PsychologicalSupport />;
+      case 'exam-techniques':
+        return <ExamTechniques />;
       case 'profile':
         return <Profile />;
       default:
