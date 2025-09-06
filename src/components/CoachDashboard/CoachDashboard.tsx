@@ -5,10 +5,8 @@ import CoachOverview from './pages/CoachOverview';
 import MyStudents from './pages/MyStudents';
 import SessionCalendar from './pages/SessionCalendar';
 import SessionTranscripts from './pages/SessionTranscripts';
-import SessionTranscripts from './pages/SessionTranscripts';
 import CoachMessages from './pages/CoachMessages';
 import Reports from './pages/Reports';
-import ParentReports from './pages/ParentReports';
 import ParentReports from './pages/ParentReports';
 import Resources from './pages/Resources';
 import Profile from './pages/Profile';
@@ -27,14 +25,10 @@ const CoachDashboard = () => {
         return <SessionCalendar />;
       case 'session-transcripts':
         return <SessionTranscripts />;
-      case 'session-transcripts':
-        return <SessionTranscripts />;
       case 'messages':
         return <CoachMessages />;
       case 'reports':
         return <Reports />;
-      case 'parent-reports':
-        return <ParentReports />;
       case 'parent-reports':
         return <ParentReports />;
       case 'resources':
