@@ -16,6 +16,11 @@ import {
   FaHeart,
   FaBrain,
   FaBook
+  FaUpload,
+  FaRobot,
+  FaHeart,
+  FaBrain,
+  FaBook
 } from 'react-icons/fa';
 
 interface SidebarProps {
@@ -37,11 +42,16 @@ const Sidebar: React.FC<SidebarProps> = ({
     { id: 'exam-analysis', label: 'Deneme Analizi', icon: FaChartBar, badge: 'AI' },
     { id: 'exam-upload', label: 'Deneme Yükle', icon: FaUpload, badge: 'Yeni' },
     { id: 'ai-chat', label: 'AI Asistan', icon: FaRobot, badge: '7/24' },
+    { id: 'exam-upload', label: 'Deneme Yükle', icon: FaUpload, badge: 'Yeni' },
+    { id: 'ai-chat', label: 'AI Asistan', icon: FaRobot, badge: '7/24' },
     { id: 'tasks', label: 'Ödevler / Görevler', icon: FaTasks, badge: '5' },
+    { id: 'homework', label: 'Ödevlerim', icon: FaBook, badge: '3' },
     { id: 'homework', label: 'Ödevlerim', icon: FaBook, badge: '3' },
     { id: 'sessions', label: 'Oturumlar', icon: FaVideo, badge: null },
     { id: 'messages', label: 'Mesajlar', icon: FaComments, badge: '2' },
     { id: 'documents', label: 'Belgeler', icon: FaFileAlt, badge: null },
+    { id: 'psychological-support', label: 'Psikolojik Destek', icon: FaHeart, badge: null },
+    { id: 'exam-techniques', label: 'Sınav Teknikleri', icon: FaBrain, badge: null },
     { id: 'psychological-support', label: 'Psikolojik Destek', icon: FaHeart, badge: null },
     { id: 'exam-techniques', label: 'Sınav Teknikleri', icon: FaBrain, badge: null },
     { id: 'profile', label: 'Profil & Üyelik', icon: FaUser, badge: null },

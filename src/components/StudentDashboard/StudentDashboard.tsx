@@ -6,11 +6,16 @@ import StudyPlan from './pages/StudyPlan';
 import ExamAnalysis from './pages/ExamAnalysis';
 import ExamUpload from './pages/ExamUpload';
 import AIChat from './pages/AIChat';
+import ExamUpload from './pages/ExamUpload';
+import AIChat from './pages/AIChat';
 import Tasks from './pages/Tasks';
+import Homework from './pages/Homework';
 import Homework from './pages/Homework';
 import Sessions from './pages/Sessions';
 import Messages from './pages/Messages';
 import Documents from './pages/Documents';
+import PsychologicalSupport from './pages/PsychologicalSupport';
+import ExamTechniques from './pages/ExamTechniques';
 import PsychologicalSupport from './pages/PsychologicalSupport';
 import ExamTechniques from './pages/ExamTechniques';
 import Profile from './pages/Profile';
@@ -31,8 +36,14 @@ const StudentDashboard = () => {
         return <ExamUpload />;
       case 'ai-chat':
         return <AIChat />;
+      case 'exam-upload':
+        return <ExamUpload />;
+      case 'ai-chat':
+        return <AIChat />;
       case 'tasks':
         return <Tasks />;
+      case 'homework':
+        return <Homework />;
       case 'homework':
         return <Homework />;
       case 'sessions':
@@ -41,6 +52,10 @@ const StudentDashboard = () => {
         return <Messages />;
       case 'documents':
         return <Documents />;
+      case 'psychological-support':
+        return <PsychologicalSupport />;
+      case 'exam-techniques':
+        return <ExamTechniques />;
       case 'psychological-support':
         return <PsychologicalSupport />;
       case 'exam-techniques':

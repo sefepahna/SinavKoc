@@ -7,7 +7,7 @@ import {
   FaDownload,
   FaEye,
   FaEdit,
-  FaSend,
+  FaPaperPlane,
   FaRobot,
   FaClock
 } from 'react-icons/fa';
@@ -256,7 +256,7 @@ const ParentReports = () => {
                       onClick={() => sendReport(report)}
                       className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
                     >
-                      <FaSend size={16} />
+                      <FaPaperPlane size={16} />
                       <span>Gönder</span>
                     </button>
                   )}
