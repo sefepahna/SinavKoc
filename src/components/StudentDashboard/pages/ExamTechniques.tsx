@@ -330,7 +330,7 @@ const ExamTechniques = () => {
         </div>
         <p className="text-gray-700 leading-relaxed">
           <strong>Sınav öncesi son 10 dakika:</strong> Derin nefes al, omuzlarını gevşet ve 
-          kendine "Ben hazırım, elimden geleni yapacağım" de. Pozitif düşünce gücünü hafife alma!
+          kendine "Ben hazırım, elimden geleni yapacağım\" de. Pozitif düşünce gücünü hafife alma!
         </p>
       </div>
     </div>
